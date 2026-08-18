@@ -143,7 +143,6 @@ body {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     background: white;
     cursor: pointer;
     box-shadow:
