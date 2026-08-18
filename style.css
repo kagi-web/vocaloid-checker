@@ -143,6 +143,7 @@ body {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     background: white;
     cursor: pointer;
     box-shadow:
@@ -153,11 +154,13 @@ body {
         border-color 0.15s ease;
 }
 
-.song-panel:hover {
-    transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+    .song-panel:hover {
+        transform: translateY(-2px);
 
-    box-shadow:
-        0 5px 12px rgba(0, 0, 0, 0.1);
+        box-shadow:
+            0 5px 12px rgba(0, 0, 0, 0.1);
+    }
 }
 
 
@@ -177,7 +180,7 @@ body {
     /*
      * 最初は暗転
      */
-    filter: brightness(35%);
+    filter: brightness(45%);
 
     transition:
         filter 0.2s ease;
@@ -201,7 +204,7 @@ body {
 
 .song-title {
     display: block;
-
+    width: 100%;
     min-height: 36px;
 
     padding: 7px 4px;
@@ -397,7 +400,7 @@ body {
 
     .song-panel.known {
    
-    outline: 1.5px solid #4d7df3;
+    outline: 1.7px solid #4d7df3;
 }
 
     .year-section {
@@ -432,7 +435,7 @@ body {
     }
 
     .song-grid {
-        gap: 5px;
+        gap: 6px;
     }
 
     .song-title {

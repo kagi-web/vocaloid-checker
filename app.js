@@ -339,9 +339,10 @@ function shareOnX() {
 
 
     const text =
-        `ボカロ曲 知ってる率チェッカー\n` +
+        `ボカロ曲知ってる率チェッカー\n` +
         `全${total}曲中${known}曲` +
-        `（知ってる率${percent}%）`;
+        `（知ってる率${percent}%）\n` +
+        '#ボカロ曲知ってる率チェッカー';
 
 
     const url =
