@@ -348,7 +348,7 @@ function shareOnX() {
    const url =
     "https://twitter.com/intent/tweet" +
     `?text=${encodeURIComponent(text)}` +
-    `&url=${encodeURIComponent(location.href + "?s")}`;
+    `&url=${encodeURIComponent(location.href)}`;
 
     window.open(
         url,
