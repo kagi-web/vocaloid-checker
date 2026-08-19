@@ -356,6 +356,15 @@ function shareOnX() {
     );
 }
 
+function saveImage() {
+    html2canvas(document.getElementById("capture")).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "result.png";
+        link.href = canvas.toDataURL();
+        link.click();
+    });
+}
+
 
 /* =========================
    イベント

@@ -330,7 +330,13 @@ body {
     font-size: 0.75rem;
 }
 
+.result{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0 ;
 
+}
 /* =========================
    X共有
 ========================= */
@@ -338,13 +344,11 @@ body {
 .share-button {
     display: block;
 
-    margin: 20px auto 0;
-
     padding: 9px 20px;
 
     border: none;
 
-    border-radius: 20px;
+    border-radius: 10px;
 
     background: #222;
 
@@ -364,6 +368,35 @@ body {
 }
 
 .share-button:active {
+    opacity: 0.7;
+}
+
+.photo-button{
+    display: block;
+    padding: 9px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #4d7df3;
+
+    color: white;
+
+    font-size: 0.85rem;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        opacity 0.15s ease;
+}
+
+.photo-button:hover {
+    transform: translateY(-1px);
+}
+
+.photo-button:active {
     opacity: 0.7;
 }
 

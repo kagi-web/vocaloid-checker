@@ -8,10 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
     <title>ボカロ曲知ってる率チェッカー</title>
 
-    <meta property="og:title" content="ボカロ知ってる率チェッカー">
-    <meta property="og:description" content="知っているボカロ曲をタップして、あなたのボカロ曲知ってる率をチェックできるサイト">
-   
-    <link rel="stylesheet" href="style.css?=v3">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ボカロ知ってる率チェッカー">
+    <meta name="twitter:description" content="知っているボカロ曲をタップして、あなたのボカロ曲知ってる率をチェックできるサイト">
+    <meta name="twitter:image" content="https://kagi-web.github.io/vocaloid-checker/images/ogp.png">
+
+
+    <link rel="stylesheet" href="style.css?=v4">
 </head>
 
 <body>
@@ -351,8 +354,6 @@
 
     <section class="stats-section" id="capture">
 
-        <h2>知ってる率</h2>
-
         <!-- 総合 -->
         <div
             id="overallStats"
@@ -366,20 +367,26 @@
             class="year-stats">
         </div>
 
-
-        <!-- X共有 -->
-        <button
-            id="shareButton"
-            class="share-button">
-            𝕏 で共有
-        </button>
-
     </section>
 
+    <div class="result">
+        <!-- X共有 -->
+            <button
+                id="shareButton"
+                class="share-button">
+                𝕏 で共有
+            </button>
+
+            <button onclick="saveImage()"
+                class="photo-button">
+                結果を画像化
+            </button>
+    </div>
 </main>
 
 
-<script src="app.js?=v3"></script>
+<script src="app.js?=v4"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
 </body>
 </html>
