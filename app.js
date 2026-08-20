@@ -356,13 +356,29 @@ function shareOnX() {
     );
 }
 
-function saveImage() {
-    html2canvas(document.getElementById("capture")).then(canvas => {
+async function saveImage() {
+    const target = document.getElementById("capture");
+
+    try {
+        const canvas = await html2canvas(target);
+
+        // Canvas → PNGのBase64データ
+        const image = canvas.toDataURL("image/png");
+
+        // ダウンロード用リンクを作成
         const link = document.createElement("a");
+        link.href = image;
         link.download = "result.png";
-        link.href = canvas.toDataURL();
+
+        // iPhone/Safariでもユーザー操作として実行
+        document.body.appendChild(link);
         link.click();
-    });
+        link.remove();
+
+    } catch (error) {
+        console.error("画像保存エラー:", error);
+        alert("画像の作成に失敗しました");
+    }
 }
 
 
