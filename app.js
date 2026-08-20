@@ -362,21 +362,37 @@ async function saveImage() {
     try {
         const canvas = await html2canvas(target);
 
-        const dataUrl = canvas.toDataURL("image/png");
+        canvas.toBlob((blob) => {
+            if (!blob) {
+                alert("画像の作成に失敗しました");
+                return;
+            }
 
-        const link = document.getElementById("downloadLink");
+            const url = URL.createObjectURL(blob);
 
-        link.href = dataUrl;
-        link.download = "result.png";
+            const link = document.createElement("a");
 
-        link.click();
+            link.href = url;
+            link.download = "result.png";
+
+            document.body.appendChild(link);
+
+            link.click();
+
+            document.body.removeChild(link);
+
+            // 少し待ってからURLを削除
+            setTimeout(() => {
+                URL.revokeObjectURL(url);
+            }, 1000);
+
+        }, "image/png");
 
     } catch (error) {
         console.error(error);
         alert("画像の作成に失敗しました");
     }
 }
-
 /* =========================
    イベント
 ========================= */
