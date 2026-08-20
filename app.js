@@ -357,28 +357,22 @@ function shareOnX() {
 }
 
 async function saveImage() {
-    const target = document.getElementById("capture");
+    const canvas = await html2canvas(
+        document.getElementById("capture")
+    );
 
-    try {
-        const canvas = await html2canvas(target);
+    downloadImage(canvas.toDataURL("image/png"));
+}
 
-        // Canvas → PNGのBase64データ
-        const image = canvas.toDataURL("image/png");
+function downloadImage(dataUrl) {
+    const name = "result.png";
 
-        // ダウンロード用リンクを作成
-        const link = document.createElement("a");
-        link.href = image;
-        link.download = "result.png";
+    const a = document.createElement("a");
 
-        // iPhone/Safariでもユーザー操作として実行
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
+    a.href = dataUrl;
+    a.download = name;
 
-    } catch (error) {
-        console.error("画像保存エラー:", error);
-        alert("画像の作成に失敗しました");
-    }
+    a.click();
 }
 
 
