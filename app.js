@@ -357,24 +357,25 @@ function shareOnX() {
 }
 
 async function saveImage() {
-    const canvas = await html2canvas(
-        document.getElementById("capture")
-    );
+    const target = document.getElementById("capture");
 
-    downloadImage(canvas.toDataURL("image/png"));
+    try {
+        const canvas = await html2canvas(target);
+
+        const dataUrl = canvas.toDataURL("image/png");
+
+        const link = document.getElementById("downloadLink");
+
+        link.href = dataUrl;
+        link.download = "result.png";
+
+        link.click();
+
+    } catch (error) {
+        console.error(error);
+        alert("画像の作成に失敗しました");
+    }
 }
-
-function downloadImage(dataUrl) {
-    const name = "result.png";
-
-    const a = document.createElement("a");
-
-    a.href = dataUrl;
-    a.download = name;
-
-    a.click();
-}
-
 
 /* =========================
    イベント
