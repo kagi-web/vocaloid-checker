@@ -356,43 +356,7 @@ function shareOnX() {
     );
 }
 
-async function saveImage() {
-    const target = document.getElementById("capture");
 
-    try {
-        const canvas = await html2canvas(target);
-
-        canvas.toBlob((blob) => {
-            if (!blob) {
-                alert("画像の作成に失敗しました");
-                return;
-            }
-
-            const url = URL.createObjectURL(blob);
-
-            const link = document.createElement("a");
-
-            link.href = url;
-            link.download = "result.png";
-
-            document.body.appendChild(link);
-
-            link.click();
-
-            document.body.removeChild(link);
-
-            // 少し待ってからURLを削除
-            setTimeout(() => {
-                URL.revokeObjectURL(url);
-            }, 1000);
-
-        }, "image/png");
-
-    } catch (error) {
-        console.error(error);
-        alert("画像の作成に失敗しました");
-    }
-}
 /* =========================
    イベント
 ========================= */
